@@ -7,9 +7,10 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "extended-behavior",
       "minimal-html-consumer",
       "simple-html-consumer",
-      "extended-behavior"
+      "trace-n-point"
     ]
   },
   "devDependencies": {
