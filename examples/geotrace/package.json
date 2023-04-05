@@ -1,7 +1,7 @@
 {
-  "name": "farmos-map-trace-n-point",
+  "name": "farmos-map-geotrace",
   "version": "0.0.0",
-  "description": "An example of using farmOS-map with trace'n'point behaviors",
+  "description": "An example of using farmOS-map with geotracing behaviors",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",

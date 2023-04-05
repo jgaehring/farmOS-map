@@ -8,9 +8,9 @@
   "workspaces": {
     "packages": [
       "extended-behavior",
+      "geotrace",
       "minimal-html-consumer",
-      "simple-html-consumer",
-      "trace-n-point"
+      "simple-html-consumer"
     ]
   },
   "devDependencies": {
