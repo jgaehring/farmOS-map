@@ -53,6 +53,12 @@ export default class Trace extends Control {
 
     this.button = button;
     element.appendChild(button);
+
+    this.addSimulation = function addSimulation() {
+
+      // TODO: implement this if I plan to use it.
+
+    };
   }
 
   enableTrace(event) {

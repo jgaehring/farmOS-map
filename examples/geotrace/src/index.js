@@ -1,8 +1,10 @@
 import geotrace from './geotrace';
 
+import Trace from './Trace';
+
 const units = 'metric';
 const instance = window.farmOS.map.create('map', { units });
-instance.addLayer('vector', {
+const layer = instance.addLayer('vector', {
   title: 'Drawing',
   group: 'Editable layers',
   color: 'orange',
@@ -24,5 +26,15 @@ simDataRequest.onload = () => {
   const simulate = JSON.parse(simDataRequest.responseText);
   const geotraceCtrl = geotrace(instance.map, { simulate, position });
   instance.map.addControl(geotraceCtrl);
+};
+simDataRequest.send();
+
+const trace = new Trace({ layer, units });
+instance.map.addControl(trace);
+
+simDataRequest.open('GET', 'sim.json');
+simDataRequest.onload = () => {
+  const simulationData = JSON.parse(simDataRequest.responseText).data;
+  trace.addSimulation(simulationData); // TODO: Implement this
 };
 simDataRequest.send();
