@@ -1,3 +1,4 @@
+/* eslint no-warning-comments: "warn" */
 import geotraceCtrl from './geotrace';
 
 const units = 'metric';
@@ -9,18 +10,18 @@ instance.addLayer('vector', {
 });
 
 // Starting position to place the marker and center the map.
-const geolocateOpts = {
-  position: {
-    coords: {
-      latitude: 40.70,
-      longitude: -73.90,
-      heading: 0,
-    },
-    timestamp: Date.now(),
-  },
-};
-const ctrl = geotraceCtrl(instance.map, geolocateOpts);
-instance.map.addControl(ctrl);
+// const geolocateOpts = {
+//   position: {
+//     coords: {
+//       latitude: 40.70,
+//       longitude: -73.90,
+//       heading: 0,
+//     },
+//     timestamp: Date.now(),
+//   },
+// };
+// const ctrl = geotraceCtrl(instance.map, geolocateOpts);
+// instance.map.addControl(ctrl);
 
 const simDataRequest = new XMLHttpRequest();
 simDataRequest.open('GET', 'sim.json');

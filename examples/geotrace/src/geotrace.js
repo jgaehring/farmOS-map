@@ -1,3 +1,4 @@
+/* eslint no-warning-comments: "warn" */
 /**
  * Based on https://github.com/openlayers/openlayers/blob/main/examples/geolocation-orientation.js
  */
@@ -239,6 +240,7 @@ export function* geotrace(map, options = {}) {
   map.removeLayer(previewLayer);
   map.render();
 
+  // TODO: Construct a "smoother" linestring for the final geomentry.
   return positionHistory;
 }
 
@@ -278,7 +280,7 @@ export function geosimulate(map, options = {}) {
     const delay = nextPosition.timestamp - currentPosition.timestamp;
     window.setTimeout(() => {
       simulatePositionChange(remaining);
-    }, delay * 2);
+    }, delay);
     return value;
   }
   simulatePositionChange(data);
@@ -314,6 +316,7 @@ export default function geotraceCtrl(map, options) {
     liveCtrls.className = 'geotrace-live-ctrl-container';
     liveContainer.appendChild(liveCtrls);
 
+    // const startTitle = 'Start Tracing';
     const resumeTitle = 'Resume Tracing';
     const pauseTitle = 'Pause Tracing';
     const pausedClassName = 'paused';
@@ -344,6 +347,42 @@ export default function geotraceCtrl(map, options) {
       }
     }, false);
     liveCtrls.appendChild(recordButton);
+
+    // const startButton = createLiveControl('start', {
+    //   tooltip: 'Start Tracing',
+    //   html: '▶️',
+    // });
+    // startButton.addEventListener('click', () => {
+    //   if (tracer && typeof tracer.next === 'function') paused = !paused;
+    // }, false);
+    // liveCtrls.appendChild(startButton);
+
+    // const pauseButton = createLiveControl('pause', {
+    //   tooltip: 'Pause Tracing',
+    //   html: '⏸️',
+    // });
+    // pauseButton.addEventListener('click', () => {
+    //   if (tracer && typeof tracer.next === 'function') paused = !paused;
+    // }, false);
+    // liveCtrls.appendChild(pauseButton);
+
+    // const stopButton = createLiveControl('stop', {
+    //   tooltip: 'Stop Tracing',
+    //   html: '⏹️',
+    // });
+    // stopButton.addEventListener('click', () => {
+    //   if (tracer && typeof tracer.next === 'function') {
+    //     tracer.next({ done: true });
+    //     tracer.return();
+    //     tracer = null;
+
+    //     // TODO: Will this remove the event listeners too?
+    //     startButton.remove();
+    //     pauseButton.remove();
+    //     stopButton.remove();
+    //   }
+    // }, false);
+    // liveCtrls.appendChild(stopButton);
 
   }, false);
 
